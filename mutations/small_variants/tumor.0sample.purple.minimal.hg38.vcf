@@ -32,10 +32,10 @@
 ##bcftools_viewVersion=1.21+htslib-1.21
 ##bcftools_viewCommand=view -f PASS purple.somatic.vcf.gz; Date=Fri May 30 17:05:19 2025
 ##sampling="random sampling using vcfrandomsample -r 0.01 using random seed 1612571"
-##bcftools_viewCommand=view -s tumour tumour_normal.2sample.purple.hg38.vcf; Date=Mon Jun  2 09:49:25 2025
+##bcftools_viewCommand=view -s tumor tumor_normal.2sample.purple.hg38.vcf; Date=Mon Jun  2 09:49:25 2025
 ##bcftools_annotateVersion=1.21+htslib-1.21
-##bcftools_annotateCommand=annotate -x INFO,FORMAT tumour.singlesample.purple.hg38.vcf; Date=Mon Jun  2 11:27:24 2025
-##bcftools_viewCommand=view -s ^tumour tumour.singlesample.purple.minimal.hg38.vcf; Date=Mon Jun  2 12:19:45 2025
+##bcftools_annotateCommand=annotate -x INFO,FORMAT tumor.singlesample.purple.hg38.vcf; Date=Mon Jun  2 11:27:24 2025
+##bcftools_viewCommand=view -s ^tumor tumor.singlesample.purple.minimal.hg38.vcf; Date=Mon Jun  2 12:19:45 2025
 ##bcftools_annotateCommand=annotate -x INFO; Date=Mon Jun  2 12:19:45 2025
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO
 chr1	5091063	.	A	G	200	PASS	.

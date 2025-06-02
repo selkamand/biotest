@@ -11,29 +11,29 @@ Most files describe a single-sample. Samples describing a cohort, will be prefix
 
 ### VCFs
 
-**tumour_normal.2sample.purple.pave.hg38.vcf**
+**tumor_normal.2sample.purple.pave.hg38.vcf**
 >  - Example somatic mutations in typical tumor-normal VCF, as produced by oncoanalyser (purple enriched VCF calls). Filter status of some PASS variants was manually changed to 'readStrandBias' or '.'. Variants have been annotated with PAVE.
 
 
 **tumor.1sample.purple.pave.hg38.vcf**
-> - Single sample version of `tumour_normal.2sample.purple.pave.hg38.vcf`. 'Normal' sample dropped using `bcftools -s tumour`
+> - Single sample version of `tumor_normal.2sample.purple.pave.hg38.vcf`. 'Normal' sample dropped using `bcftools -s tumor`
 
 
 **tumor.1sample.purple.minimal.hg38.vcf**
-> - More minimal version of `tumour_normal.2sample.purple.hg38.vcf` with INFO and FORMAT fields dropped using `bcftools annotate -x 'INFO,FORMAT'`. Only GT field remains.
+> - More minimal version of `tumor_normal.2sample.purple.hg38.vcf` with INFO and FORMAT fields dropped using `bcftools annotate -x 'INFO,FORMAT'`. Only GT field remains.
 
 
-**tumour.0sample.purple.minimal.hg38.vcf**
+**tumor.0sample.purple.minimal.hg38.vcf**
 > - Minimal VCF with no sample information. Mutations describe a single sample whose ID is not described anywhere in the file.
 
-**tumour.1sample.purple.vep.hg38.vcf**
+**tumor.1sample.purple.vep.hg38.vcf**
 > - Annotated with VEP (CSQ info field).
 > - Options: GRCh38.p14; GENCODE 48; Cache Version 114_GRCh38
 >  
-> `./vep --af --appris --biotype --buffer_size 500 --check_existing --distance 5000 --hgvs --mane --polyphen b --pubmed --regulatory --show_ref_allele --sift b --species homo_sapiens --symbol --transcript_version --tsl --uploaded_allele --cache --input_file tumor.singlasample.purple.hg38.vcf --output_file tumour.singlesample.purple.vep.hg38.vcf`
+> `./vep --af --appris --biotype --buffer_size 500 --check_existing --distance 5000 --hgvs --mane --polyphen b --pubmed --regulatory --show_ref_allele --sift b --species homo_sapiens --symbol --transcript_version --tsl --uploaded_allele --cache --input_file tumor.singlasample.purple.hg38.vcf --output_file tumor.singlesample.purple.vep.hg38.vcf`
 
-**tumour.1sample.purple.vep_and_pave.hg38.vcf**
-> - Annotated with VEP (CSQ info field). Pave annotations remain present. See `tumour.singlesample.purple.vep.hg38.vcf` for a VEP only version and 
+**tumor.1sample.purple.vep_and_pave.hg38.vcf**
+> - Annotated with VEP (CSQ info field). Pave annotations remain present. See `tumor.singlesample.purple.vep.hg38.vcf` for a VEP only version and 
 > - Options: GRCh38.p14; GENCODE 48; Cache Version 114_GRCh38
 
 ### Tabular
@@ -45,7 +45,7 @@ Most files describe a single-sample. Samples describing a cohort, will be prefix
 **chromposrefalt.1based.hg38.tsv**
 > - Minimal Tabular Variant Format (pass only).
 > 
-> `bcftools view -f PASS -H tumour.singlesample.purple.minimal.hg38.vc
+> `bcftools view -f PASS -H tumor.singlesample.purple.minimal.hg38.vc
 f | cut -f1,2,4,5 | awk 'BEGIN{print "Chromosome","Position","Ref","Alt"}{print $0}' OFS="\t" | head > chromposrefalt.1based.hg38.tsv`
 
 
@@ -57,19 +57,19 @@ f | cut -f1,2,4,5 | awk 'BEGIN{print "Chromosome","Position","Ref","Alt"}{print 
 **tumor_normal.2sample.purple.sv.vcf**
 > - purple somatic SVs (PASS & INFERRED). Oncoanalyser Output.
 
-**tumour.1sample.purple.sv.vcf**
-> - somatic SVs (PASS & INFERRED) with only 1 sample (tumour sample) described.
+**tumor.1sample.purple.sv.vcf**
+> - somatic SVs (PASS & INFERRED) with only 1 sample (tumor sample) described.
 
-**tumour.0sample.purple.sv.vcf**
+**tumor.0sample.purple.sv.vcf**
 > - somatic SVs (PASS & INFERRED) describing a single sample, with no sample ID in VCF.
 
 ### Tabular
 
  **purple.sv.breakpoints.bedpe**
-> - Somatic breakpoints from `tumour_normal.2sample.purple.sv.vcf`. Does not include single breakends, where second breakpoint could not be found. See `scripts/sv_vcf_to_tabular.R` for code to reproduce.
+> - Somatic breakpoints from `tumor_normal.2sample.purple.sv.vcf`. Does not include single breakends, where second breakpoint could not be found. See `scripts/sv_vcf_to_tabular.R` for code to reproduce.
 
  **purple.sv.breakends.bed**
- > - Somatic single breakends from `tumour_normal.2sample.purple.sv.vcf`. Does not include SVs where both ends of breakpoint are found. Score of breakends inferred by copynumnber change are set to zero. See `scripts/sv_vcf_to_tabular.R` for code to reproduce.  
+ > - Somatic single breakends from `tumor_normal.2sample.purple.sv.vcf`. Does not include SVs where both ends of breakpoint are found. Score of breakends inferred by copynumnber change are set to zero. See `scripts/sv_vcf_to_tabular.R` for code to reproduce.  
 
 ## Mutations (Copy Number Variants)
 
