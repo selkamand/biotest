@@ -46,8 +46,7 @@ Most files describe a single-sample. Samples describing a cohort, will be prefix
 > - Minimal Tabular Variant Format (pass only).
 > 
 > `bcftools view -f PASS -H tumour.singlesample.purple.minimal.hg38.vc
-f | cut -f1,2,4,5 | awk 'BEGIN{print "Chromosome","Position","Ref","Alt
-"}{print $0}' OFS="\t" | head > chromposrefalt.1based.hg38.tsv`
+f | cut -f1,2,4,5 | awk 'BEGIN{print "Chromosome","Position","Ref","Alt"}{print $0}' OFS="\t" | head > chromposrefalt.1based.hg38.tsv`
 
 
 ## Mutations (Structural Variants)
