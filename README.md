@@ -14,6 +14,11 @@ Most files describe a single-sample. Samples describing a cohort, will be prefix
 **tumor_normal.2sample.purple.pave.hg38.vcf**
 >  - Example somatic mutations in typical tumor-normal VCF, as produced by oncoanalyser (purple enriched VCF calls). Filter status of some PASS variants was manually changed to 'readStrandBias' or '.'. Variants have been annotated with PAVE.
 
+**tumor_normal.2sample.purple.minimal.hg38.vcf**
+> - Removed INFO and FORMAT fields except for GT using `bcftools annotate -x "INFO,FORMAT"`
+
+**tumor_normal.2sample.purple.minimal.vep.hg38.vcf**
+> - VEP annotated (with identify canonical transcripts on).
 
 **tumor.1sample.purple.pave.hg38.vcf**
 > - Single sample version of `tumor_normal.2sample.purple.pave.hg38.vcf`. 'Normal' sample dropped using `bcftools -s tumor`
@@ -27,10 +32,8 @@ Most files describe a single-sample. Samples describing a cohort, will be prefix
 > - Minimal VCF with no sample information. Mutations describe a single sample whose ID is not described anywhere in the file.
 
 **tumor.1sample.purple.vep.hg38.vcf**
-> - Annotated with VEP (CSQ info field).
-> - Options: GRCh38.p14; GENCODE 48; Cache Version 114_GRCh38
+> - Annotated with VEP (CSQ info field). See header for command
 >  
-> `./vep --af --appris --biotype --buffer_size 500 --check_existing --distance 5000 --hgvs --mane --polyphen b --pubmed --regulatory --show_ref_allele --sift b --species homo_sapiens --symbol --transcript_version --tsl --uploaded_allele --cache --input_file tumor.singlasample.purple.hg38.vcf --output_file tumor.singlesample.purple.vep.hg38.vcf`
 
 **tumor.1sample.purple.vep_and_pave.hg38.vcf**
 > - Annotated with VEP (CSQ info field). Pave annotations remain present. See `tumor.singlesample.purple.vep.hg38.vcf` for a VEP only version and 
@@ -76,3 +79,6 @@ f | cut -f1,2,4,5 | awk 'BEGIN{print "Chromosome","Position","Ref","Alt"}{print 
 **purple.cnv.somatic.tsv**
 
 > Copy number profile of all (contiguous) segments of a tumor sample
+
+
+SigProfilerMatrixGenerator
