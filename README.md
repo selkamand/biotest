@@ -57,22 +57,22 @@ f | cut -f1,2,4,5 | awk 'BEGIN{print "Chromosome","Position","Ref","Alt"}{print 
 
 ### VCFs
 
-**tumor_normal.2sample.purple.sv.vcf**
+**tumor_normal.2sample.purple.sv.hg38.vcf**
 > - purple somatic SVs (PASS & INFERRED). Oncoanalyser Output.
 
-**tumor.1sample.purple.sv.vcf**
+**tumor.1sample.purple.sv.hg38.vcf**
 > - somatic SVs (PASS & INFERRED) with only 1 sample (tumor sample) described.
 
-**tumor.0sample.purple.sv.vcf**
+**tumor.0sample.purple.sv.hg38.vcf**
 > - somatic SVs (PASS & INFERRED) describing a single sample, with no sample ID in VCF.
 
 ### Tabular
 
- **purple.sv.breakpoints.bedpe**
-> - Somatic breakpoints from `tumor_normal.2sample.purple.sv.vcf`. Does not include single breakends, where second breakpoint could not be found. See `scripts/sv_vcf_to_tabular.R` for code to reproduce.
+ **purple.sv.breakpoints.hg38.bedpe**
+> - Somatic breakpoints from `tumor_normal.2sample.purple.sv.hg38.vcf`. Does not include single breakends, where second breakpoint could not be found. See `scripts/sv_vcf_to_tabular.R` for code to reproduce.
 
- **purple.sv.breakends.bed**
- > - Somatic single breakends from `tumor_normal.2sample.purple.sv.vcf`. Does not include SVs where both ends of breakpoint are found. Score of breakends inferred by copynumnber change are set to zero. See `scripts/sv_vcf_to_tabular.R` for code to reproduce.  
+ **purple.sv.breakends.hg38.bed**
+ > - Somatic single breakends from `tumor_normal.2sample.purple.sv.hg38.vcf`. Does not include SVs where both ends of breakpoint are found. Score of breakends inferred by copynumnber change are set to zero. See `scripts/sv_vcf_to_tabular.R` for code to reproduce.  
 
 ## Mutations (Copy Number Variants)
 
